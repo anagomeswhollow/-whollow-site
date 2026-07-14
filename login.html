@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Whollow — Enter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-wrap">
+  <div class="login-box">
+    <h1>Whollow</h1>
+    <p class="sub">This is a private portfolio. Enter the password to continue.</p>
+    <form id="loginForm">
+      <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit">Enter</button>
+    </form>
+    <div class="error" id="error"></div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const errorEl = document.getElementById("error");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorEl.textContent = "";
+    const password = document.getElementById("password").value;
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password })
+    });
+
+    if (res.ok) {
+      // Server has set the auth cookie; redirect into the site.
+      const params = new URLSearchParams(window.location.search);
+      window.location.href = params.get("redirect") || "/";
+    } else {
+      errorEl.textContent = "Wrong password. Try again.";
+    }
+  });
+</script>
+</body>
+</html>

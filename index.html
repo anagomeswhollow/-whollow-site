@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Whollow — Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Private portfolio: keep this out of search engines regardless of password gate -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html">Whollow</a>
+  <div class="nav-links">
+    <a href="about.html">About / Contact</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION 1 — VISION
+     Replace the eyebrow + heading + brief below with your own
+     text. Suggested structure:
+       eyebrow = project or year label
+       h1      = the one-line thesis / what you set out to do
+       brief   = 2–4 sentences: what management/the client briefed
+                 you to solve, and what your point of view was
+     ============================================================ -->
+<section class="hero">
+  <div class="eyebrow">[ Replace: e.g. "Selected Work, 2024–2026" ]</div>
+  <h1>[Replace with your one-line vision statement — what problem were you asked to solve?]</h1>
+  <p class="brief">
+    [Replace with the brief: 2–4 sentences describing the ask from management/the client,
+    the constraints you were given, and the point of view you brought to the work.
+    Keep it short — this is the only block of reading on the whole page.]
+  </p>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — VISUAL OUTCOME
+     One .work-item per project. To use a real image, replace the
+     <div class="frame">...</div> placeholder with:
+       <div class="frame"><img src="images/project-01.jpg" alt="Project 01"></div>
+     Recommended image size: 2400×1500px (16:10), compressed JPG/WebP.
+     Duplicate the whole .work-item block for each additional piece.
+     ============================================================ -->
+<section class="work-section">
+
+  <div class="work-item">
+    <div class="frame">Image placeholder — 16:10 — drop in images/project-01.jpg</div>
+    <div class="caption">
+      <span><strong>[Project name]</strong> — [one-line description]</span>
+      <span>[Year / role]</span>
+    </div>
+  </div>
+
+  <div class="work-item">
+    <div class="frame">Image placeholder — 16:10 — drop in images/project-02.jpg</div>
+    <div class="caption">
+      <span><strong>[Project name]</strong> — [one-line description]</span>
+      <span>[Year / role]</span>
+    </div>
+  </div>
+
+  <div class="work-item">
+    <div class="frame">Image placeholder — 16:10 — drop in images/project-03.jpg</div>
+    <div class="caption">
+      <span><strong>[Project name]</strong> — [one-line description]</span>
+      <span>[Year / role]</span>
+    </div>
+  </div>
+
+  <!-- Duplicate .work-item above for more pieces -->
+
+</section>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Whollow</span>
+  <a href="about.html">About / Contact →</a>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
