@@ -97,7 +97,7 @@ async function handleLogin(request, secret, password) {
   });
 }
 
-export default async (request, context) => {
+async function handleRequest(request, context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
@@ -134,6 +134,22 @@ export default async (request, context) => {
 
   const redirectTo = encodeURIComponent(path + url.search);
   return Response.redirect(`${url.origin}/login.html?redirect=${redirectTo}`, 302);
+}
+
+export default async (request, context) => {
+  // Top-level safety net: if anything above throws for any reason
+  // (env hiccup, unexpected input, a platform-level fluke), fail with a
+  // plain, readable error instead of Netlify's generic "edge function has
+  // crashed" page — and never silently let the request through unchecked.
+  try {
+    return await handleRequest(request, context);
+  } catch (err) {
+    return new Response(
+      "Something went wrong loading this page. Please refresh — if this keeps happening, the site owner needs to check the Edge Functions logs in Netlify.\n\n" +
+        (err && err.message ? `Detail: ${err.message}` : ""),
+      { status: 500, headers: { "Content-Type": "text/plain" } }
+    );
+  }
 };
 
 export const config = { path: "/*" };
