@@ -39,16 +39,35 @@
 
 <!-- ============================================================
      SECTION 2 — VISUAL OUTCOME
-     One .work-item per project. To use a real image, replace the
-     <div class="frame">...</div> placeholder with:
-       <div class="frame"><img src="images/project-01.jpg" alt="Project 01"></div>
-     Recommended image size: 2400×1500px (16:10), compressed JPG/WebP.
-     Duplicate the whole .work-item block for each additional piece.
+     One .work-item per project, each with a draggable before/after
+     slider (drag the handle, or click anywhere in the image, to
+     reveal the "after" over the "before").
+
+     TO ADD REAL IMAGES: replace the two placeholder <div class="
+     compare-placeholder">...</div> blocks with real <img> tags:
+
+       <img class="compare-img compare-base"
+            src="images/project-01-before.jpg" alt="Project 01 — before">
+       <img class="compare-img compare-reveal"
+            src="images/project-01-after.jpg" alt="Project 01 — after">
+
+     Keep the class names exactly as shown (compare-base / compare-reveal)
+     — the slider script depends on them. Recommended image size:
+     2400×1350px (16:9), same crop/framing for both before and after
+     so the reveal lines up.
+
+     Duplicate the whole .work-item block for each additional project.
      ============================================================ -->
 <section class="work-section">
 
   <div class="work-item">
-    <div class="frame">Image placeholder — 16:10 — drop in images/project-01.jpg</div>
+    <div class="compare-frame">
+      <div class="compare-placeholder">Before — drop in images/project-01-before.jpg</div>
+      <div class="compare-placeholder compare-reveal">After — drop in images/project-01-after.jpg</div>
+      <span class="compare-label compare-label-before">Before</span>
+      <span class="compare-label compare-label-after">After</span>
+      <div class="compare-handle"></div>
+    </div>
     <div class="caption">
       <span><strong>[Project name]</strong> — [one-line description]</span>
       <span>[Year / role]</span>
@@ -56,7 +75,13 @@
   </div>
 
   <div class="work-item">
-    <div class="frame">Image placeholder — 16:10 — drop in images/project-02.jpg</div>
+    <div class="compare-frame">
+      <div class="compare-placeholder">Before — drop in images/project-02-before.jpg</div>
+      <div class="compare-placeholder compare-reveal">After — drop in images/project-02-after.jpg</div>
+      <span class="compare-label compare-label-before">Before</span>
+      <span class="compare-label compare-label-after">After</span>
+      <div class="compare-handle"></div>
+    </div>
     <div class="caption">
       <span><strong>[Project name]</strong> — [one-line description]</span>
       <span>[Year / role]</span>
@@ -64,14 +89,24 @@
   </div>
 
   <div class="work-item">
-    <div class="frame">Image placeholder — 16:10 — drop in images/project-03.jpg</div>
+    <div class="compare-frame">
+      <div class="compare-placeholder">Before — drop in images/project-03-before.jpg</div>
+      <div class="compare-placeholder compare-reveal">After — drop in images/project-03-after.jpg</div>
+      <span class="compare-label compare-label-before">Before</span>
+      <span class="compare-label compare-label-after">After</span>
+      <div class="compare-handle"></div>
+    </div>
     <div class="caption">
       <span><strong>[Project name]</strong> — [one-line description]</span>
       <span>[Year / role]</span>
     </div>
   </div>
 
-  <!-- Duplicate .work-item above for more pieces -->
+  <!-- Duplicate .work-item above for more pieces.
+       If a project has no before/after (just one hero image), use the
+       simpler single-image pattern instead:
+       <div class="frame"><img src="images/project-04.jpg" alt="Project 04"></div>
+       (the .frame / .compare-frame classes can be mixed on the same page) -->
 
 </section>
 
@@ -83,5 +118,6 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<script src="js/compare.js" defer></script>
 </body>
 </html>
