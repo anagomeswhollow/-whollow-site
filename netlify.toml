@@ -4,3 +4,12 @@
 [[edge_functions]]
   function = "gate"
   path = "/*"
+
+# Always revalidate with the server before using a cached copy of any
+# file. Without this, browsers (Chrome especially) can keep showing an
+# old cached version of the site after a new deploy until the user
+# manually hard-refreshes or clears cache.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
