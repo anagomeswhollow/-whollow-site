@@ -115,9 +115,17 @@
   <a href="about.html">About / Contact →</a>
 </footer>
 
+<!-- Full-screen image viewer -- opened by clicking (not dragging) any
+     before/after image above. See js/lightbox.js -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<script src="js/lightbox.js" defer></script>
 <script src="js/compare.js" defer></script>
 </body>
 </html>
