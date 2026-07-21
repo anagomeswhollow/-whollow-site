@@ -228,7 +228,7 @@ a { color: inherit; }
 /* the "after" layer sits on top and gets visually clipped by JS
    via clip-path as the handle is dragged */
 .compare-reveal {
-  clip-path: inset(0 50% 0 0);
+  clip-path: inset(0 0 0 50%);
 }
 
 .compare-label {

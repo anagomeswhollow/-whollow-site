@@ -12,7 +12,10 @@
 
     function setPercent(percent) {
       const clamped = Math.max(0, Math.min(100, percent));
-      reveal.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
+      // Left of the handle = before (base layer shows through),
+      // right of the handle = after (reveal layer visible) --
+      // matching the fixed Before/After corner labels.
+      reveal.style.clipPath = `inset(0 0 0 ${clamped}%)`;
       handle.style.left = `${clamped}%`;
     }
 
