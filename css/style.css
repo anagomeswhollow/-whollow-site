@@ -188,15 +188,13 @@ a { color: inherit; }
 }
 
 /* Use on text-heavy compare frames (e.g. a discovery-notes "before"
-   page) so nothing gets cropped by the default wide 16:9 shape. */
+   page) so nothing gets cropped by the default wide 16:9 shape.
+   Kept at 1:1 on every screen size, including mobile -- the notebook
+   image itself is a perfect square, so forcing a different ratio here
+   (e.g. 4:5) makes object-fit:cover zoom in and crop real text off
+   both edges. 1:1 everywhere means it never needs to crop at all. */
 .compare-frame--tall {
   aspect-ratio: 1 / 1;
-}
-
-@media (max-width: 700px) {
-  .compare-frame--tall {
-    aspect-ratio: 4 / 5;
-  }
 }
 
 .compare-img,
