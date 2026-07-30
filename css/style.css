@@ -93,6 +93,35 @@ a { color: inherit; }
   letter-spacing: 0.035em;
 }
 
+/* Dot the i's in "visible" with tiny eyes instead of dots. The dot
+   masking trick: paint a background-colored circle over the font's own
+   dot, then draw a little eye (SVG, currentColor) in the same spot. */
+.word-visible .eye-i {
+  position: relative;
+  display: inline-block;
+}
+
+.word-visible .eye-i::before {
+  content: "";
+  position: absolute;
+  top: -0.02em;
+  left: 50%;
+  width: 0.34em;
+  height: 0.28em;
+  background: var(--bg);
+  transform: translateX(-50%);
+}
+
+.word-visible .eye-i svg {
+  position: absolute;
+  top: -0.05em;
+  left: 50%;
+  width: 0.46em;
+  height: auto;
+  transform: translateX(-50%);
+  color: var(--accent);
+}
+
 .hero h1 .word-felt {
   color: var(--accent);
   font-style: italic;
